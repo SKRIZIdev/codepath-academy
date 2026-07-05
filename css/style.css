@@ -46,3 +46,31 @@ nav a:hover,nav a.active{color:var(--accent)}
 .qa .a p{padding:0 18px 16px}
 .foot{text-align:center;color:var(--muted);padding:30px;font-size:.85rem;border-top:1px solid var(--line)}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.hero h1{font-size:2.4rem}.stats{gap:24px}}
+
+/* ---- enhancements: module detail modal, animations ---- */
+@keyframes riseIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes mIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.hero-in>*{opacity:0;animation:riseIn .6s cubic-bezier(.2,.8,.3,1) both}
+.hero-in>*:nth-child(2){animation-delay:.08s}.hero-in>*:nth-child(3){animation-delay:.16s}.hero-in>*:nth-child(4){animation-delay:.24s}
+.stats b{display:inline-block;transition:transform .2s}.stats div:hover b{transform:translateY(-3px)}
+.grid .card{opacity:0;animation:riseIn .55s ease both}
+.grid .card:nth-child(2){animation-delay:.08s}.grid .card:nth-child(3){animation-delay:.16s}.grid .card:nth-child(4){animation-delay:.24s}
+.grid .card{transition:transform .2s,border-color .2s}.grid .card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.reveal{opacity:0;animation:riseIn .5s ease both}
+.module{cursor:pointer}
+.module .open{margin-left:auto;color:var(--accent);font-size:.82rem;opacity:0;transition:opacity .2s;white-space:nowrap}
+.module:hover .open{opacity:1}
+.btn{transition:transform .1s,filter .15s}.btn:active{transform:scale(.96)}
+.mod-bd{position:fixed;inset:0;background:rgba(6,8,12,.6);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999;opacity:0;transition:opacity .2s}
+.mod-bd.show{opacity:1}
+.mod-dialog{background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:460px;width:100%;padding:30px;position:relative;animation:mIn .28s cubic-bezier(.2,.9,.3,1) both}
+.mwk{color:var(--accent);font-family:ui-monospace,monospace;font-size:.82rem}
+.mod-dialog h3{font-size:1.5rem;margin:6px 0 8px}
+.mbody{color:var(--muted);margin-bottom:16px}
+.mod-dialog h4{color:var(--accent2);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.mtopics{list-style:none;margin-bottom:22px}
+.mtopics li{padding:8px 0;border-bottom:1px solid var(--line);color:var(--txt)}
+.mtopics li::before{content:'▹ ';color:var(--accent)}
+.mtopics li:last-child{border:none}
+.mtoggle{width:100%}
+.mx{position:absolute;top:14px;right:16px;background:var(--bg);border:1px solid var(--line);color:var(--txt);width:32px;height:32px;border-radius:50%;font-size:1.3rem;cursor:pointer}
